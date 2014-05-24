@@ -9,7 +9,10 @@ module Rails
       options[:json] = collection if options[:json]
       options[:xml]  = collection if options[:xml]
 
-      render options
+      options_hash = {}
+      options_hash[:items] = collection
+
+      render json: options_hash
     end
 
     def paginate_with(collection)
